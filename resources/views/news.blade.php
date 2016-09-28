@@ -9,11 +9,14 @@
     @endforeach
     <h3>Make News</h3>
     <form method='POST' action='/news'>
-      <input type="hidden" name="_token" value="{{ csrf_token() }}"> <!-- still don't really know what this is for, but it fixes 'TokenMismatchException' -->
+      {{ csrf_field() }} <!-- I guess this is checking against a stored 'token' -->
       <div class='form-group'>
-        <input class='form-control' type='text' placeholder='Author' name='author'/>
-        <input class='form-control' type='text' placeholder='Title' name='title'/>
-        <textarea class='form-control' placeholder='News text' name='body'></textarea>
+        <input class='form-control' type='text' placeholder='Author' name='author' value="{{ old('author') }}" required/>
+        <span class="err error errors">{{ $errors->first('author') }}</span>
+        <input class='form-control' type='text' placeholder='Title' name='title' value="{{ old('title') }}" required/>
+        <span class="err error errors">{{ $errors->first('title') }}</span>
+        <textarea class='form-control' placeholder='News text' name='body' required>{{ old('body') }}</textarea>
+        <span class="err error errors">{{ $errors->first('body') }}</span>
       </div>
       <div class='form-group'>
         <button class='btn btn-primary' type='submit'>Publish</button>

@@ -18,11 +18,18 @@ class NewsController extends Controller
 
   public function show(News $news)
   { // Method to retrieve one specific Article
+      $news->load('images'); // wow!
+
       return view('news.index', compact('news'));
   }
 
   public function store(News $news, Request $request)
   { // Mehtod to store an Article into database
+      $this->validate($request, [
+        'author'  => 'required|min:2',
+        'title'   => 'required|min:4',
+        'body'    => 'required|min:20'
+      ]);
       $news->create($request->all());
       // $news->images()->create(['file_name'=>'plumbs.jpg']); // How can we associate data to a record which 'id' is unknown?
       return back();

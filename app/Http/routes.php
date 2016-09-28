@@ -10,7 +10,6 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
 // Related to displaying content
 Route::get('/', 'PagesController@home'); // Route to display Home page
 Route::get('about', 'PagesController@about'); // Route to display About page
