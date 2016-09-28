@@ -1,2 +1,44 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+html {
+  background: hsl(340, 90%, 40%);
+}
+
+body {
+  background: hsl(320, 90%, 80%);
+  width: 40%;
+  margin: 0 auto;
+}
+
+.top-bar {
+  display: block;
+  padding: 1em;
+  margin: 0;
+  color: white;
+  background: hsl(330, 90%, 30%);
+  h1 {
+    margin: 0;
+    display: inline;
+  }
+  ul {
+    margin: 0;
+    display: inline;
+    li {
+      display: inline;
+      text-decoration: none;
+      a {
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        padding: .25em;
+      }
+      a:hover {
+        outline: white solid 1px;
+      }
+    }
+  }
+}
+
+#content {
+  margin: 1em;
+}
