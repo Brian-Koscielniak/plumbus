@@ -6,10 +6,10 @@
     <link rel="stylesheet" href="/css/app.css"/>
   </head>
   <body>
+    @include('layouts.top-bar')
     <div id='content'>
-      @include('layouts.top-bar')
+      @yield('content')
     </div>
-    @yield('content')
     <div class="bottom-bar">&nbsp;</div>
   </body>
 </html>
